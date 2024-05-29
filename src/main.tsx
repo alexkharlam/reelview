@@ -15,25 +15,6 @@ import PrivateRoute from './views/PrivateRoute.tsx';
 import Rates from './views/Rates.tsx';
 import WatchList from './views/WatchList.tsx';
 
-// const router = createBrowserRouter(
-//     createRoutesFromElements(
-//       <Route path="/" element={<App />} errorElement={<ErrorPage />}>
-//         <Route index={true} path="/" element={<Home />} />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/test" element={<TestPage />} />
-//         <Route path="/search" element={<Search />} />
-//         <Route path="/reviews/:id" element={<Review />} />
-
-//         <Route path="" element={<PrivateRoute />}>
-//           <Route path="/admin" element={<Admin />} />
-//           <Route path="/reviews/create" element={<CreateReview />} />
-//           <Route path="/profile/reviews" element={<MyReviews />} />
-//           <Route path="/profile/favourites" element={<FavouriteReviews />} />
-//         </Route>
-//       </Route>,
-//     ),
-//   );
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<Error />}>
