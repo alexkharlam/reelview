@@ -1,11 +1,16 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { Outlet } from 'react-router-dom';
 
 const PrivateRoute = () => {
-  const isAuthenticated = false; // For testing react-router. Add real auth later
+  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
+
+  if (isLoading) return <p>loading</p>;
 
   if (isAuthenticated) return <Outlet />;
 
-  return <div>This is a private route, you need to register</div>;
+  loginWithRedirect();
+
+  return <p>Redirecting to login page...</p>;
 };
 
 export default PrivateRoute;
