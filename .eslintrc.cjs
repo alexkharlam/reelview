@@ -5,14 +5,21 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'airbnb',
+    'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['@typescript-eslint', 'react', 'jsx-a11y', 'react-hooks', 'prettier'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+    '@typescript-eslint/no-explicit-any': 'error',
+    'max-lines-per-function': ['error', { max: 40 }],
+    'prettier/prettier': 'error',
   },
-}
+};
