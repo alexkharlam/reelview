@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App.tsx';
 import './index.css';
 import Error from './views/Error.tsx';
@@ -16,6 +17,15 @@ import PrivateRoute from './views/PrivateRoute.tsx';
 import Rates from './views/Rates.tsx';
 import WatchList from './views/WatchList.tsx';
 import getAuthConfig from './helpers/getAuthConfig.ts';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // staleTime: 60 * 1000,
+      staleTime: 0,
+    },
+  },
+});
 
 const { auth0Domain, auth0ClientId, auth0RedirectUri } = getAuthConfig();
 
@@ -36,14 +46,16 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Auth0Provider
-      domain={auth0Domain}
-      clientId={auth0ClientId}
-      authorizationParams={{
-        redirect_uri: auth0RedirectUri,
-      }}
-    >
-      <RouterProvider router={router} />
-    </Auth0Provider>
+    <QueryClientProvider client={queryClient}>
+      <Auth0Provider
+        domain={auth0Domain}
+        clientId={auth0ClientId}
+        authorizationParams={{
+          redirect_uri: auth0RedirectUri,
+        }}
+      >
+        <RouterProvider router={router} />
+      </Auth0Provider>
+    </QueryClientProvider>
   </React.StrictMode>,
 );
