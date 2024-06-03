@@ -5,10 +5,10 @@ import { disableScroll, enableScroll } from '../../utils/scroll.ts';
 
 type Props = {
   children: ReactNode;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClose: MouseEventHandler<HTMLButtonElement>;
 };
 
-const Modal = ({ children, onClick }: Props) => {
+const Modal = ({ children, onClose }: Props) => {
   useEffect(() => {
     disableScroll();
     return () => enableScroll();
@@ -19,7 +19,7 @@ const Modal = ({ children, onClick }: Props) => {
       <div className="fixed left-[0px] top-[0px] z-50 h-screen w-full bg-gray-1400 bg-opacity-90">
         {children}
       </div>
-      <button onClick={onClick} className="fixed right-[0px] top-[0px] z-50 p-1" type="button">
+      <button onClick={onClose} className="fixed right-[0px] top-[0px] z-50 p-1" type="button">
         <X strokeWidth={1} size={45} />
       </button>
     </>,
