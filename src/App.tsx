@@ -1,10 +1,14 @@
 import { Outlet } from 'react-router-dom';
+import Header from './components/layout/Header.tsx';
 
 const App = () => {
   return (
     <>
-      <header>header</header>
-      <Outlet />
+      <Header />
+      <main className="px-1">
+        <Outlet />
+      </main>
+      <footer>footer</footer>
     </>
   );
 };
