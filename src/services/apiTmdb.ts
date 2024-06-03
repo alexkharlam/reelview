@@ -17,16 +17,16 @@ const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 const defaultParams = { api_key: TMDB_API_KEY };
 
-export const searchContent = async (query: string) => {
-  const res = await axios.get<SearchMulti>(`${TMDB_BASE_URL}/search/multi`, {
+export const searchContent = async (query: string): Promise<SearchMulti> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/search/multi`, {
     params: { ...defaultParams, query },
   });
   const camelData = camelcaseKeys(res.data, { deep: true });
   return camelData;
 };
 
-export const getPopularMovies = async () => {
-  const res = await axios.get<PopularMovies>(`${TMDB_BASE_URL}/movie/popular`, {
+export const getPopularMovies = async (): Promise<PopularMovies> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/movie/popular`, {
     params: { ...defaultParams },
   });
 
@@ -34,8 +34,8 @@ export const getPopularMovies = async () => {
   return camelData;
 };
 
-export const getTopRatedMovies = async () => {
-  const res = await axios.get<TopRatedMovies>(`${TMDB_BASE_URL}/movie/top_rated`, {
+export const getTopRatedMovies = async (): Promise<TopRatedMovies> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/movie/top_rated`, {
     params: { ...defaultParams },
   });
 
@@ -43,8 +43,8 @@ export const getTopRatedMovies = async () => {
   return camelData;
 };
 
-export const getUpcomingMovies = async () => {
-  const res = await axios.get<UpcomingMovies>(`${TMDB_BASE_URL}/movie/upcoming`, {
+export const getUpcomingMovies = async (): Promise<UpcomingMovies> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/movie/upcoming`, {
     params: { ...defaultParams },
   });
 
@@ -52,8 +52,8 @@ export const getUpcomingMovies = async () => {
   return camelData;
 };
 
-export const getPopularTvShows = async () => {
-  const res = await axios.get<PopularTvShows>(`${TMDB_BASE_URL}/tv/popular`, {
+export const getPopularTvShows = async (): Promise<PopularTvShows> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/tv/popular`, {
     params: { ...defaultParams },
   });
 
@@ -61,8 +61,8 @@ export const getPopularTvShows = async () => {
   return camelData;
 };
 
-export const getTopRatedTvShows = async () => {
-  const res = await axios.get<TopRatedTvShows>(`${TMDB_BASE_URL}/tv/top_rated`, {
+export const getTopRatedTvShows = async (): Promise<TopRatedTvShows> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/tv/top_rated`, {
     params: { ...defaultParams },
   });
 
@@ -70,8 +70,8 @@ export const getTopRatedTvShows = async () => {
   return camelData;
 };
 
-export const getMovieDetails = async (id: number) => {
-  const res = await axios.get<MovieDetails>(`${TMDB_BASE_URL}/movie/${id}`, {
+export const getMovieDetails = async (id: number): Promise<MovieDetails> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/movie/${id}`, {
     params: { ...defaultParams },
   });
 
@@ -79,8 +79,8 @@ export const getMovieDetails = async (id: number) => {
   return camelData;
 };
 
-export const getMovieVideos = async (id: number) => {
-  const res = await axios.get<MovieVideos>(`${TMDB_BASE_URL}/movie/${id}/videos`, {
+export const getMovieVideos = async (id: number): Promise<MovieVideos> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/movie/${id}/videos`, {
     params: { ...defaultParams },
   });
 
@@ -88,8 +88,8 @@ export const getMovieVideos = async (id: number) => {
   return camelData;
 };
 
-export const getTvShowDetails = async (id: number) => {
-  const res = await axios.get<TvDetails>(`${TMDB_BASE_URL}/tv/${id}`, {
+export const getTvShowDetails = async (id: number): Promise<TvDetails> => {
+  const res = await axios.get(`${TMDB_BASE_URL}/tv/${id}`, {
     params: { ...defaultParams },
   });
 

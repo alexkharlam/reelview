@@ -2,15 +2,15 @@ export type MovieVideos = {
   id: number;
   results:
     | {
-        iso_639_1: string;
-        iso_3166_1: string;
+        iso6391: string;
+        iso31661: string;
         name: string;
         key: string;
         site: string;
         size: number;
         type: string;
         official: boolean;
-        published_at: string;
+        publishedAt: string;
         id: string;
       }[]
     | [];
@@ -18,211 +18,211 @@ export type MovieVideos = {
 
 export type MovieDetails = {
   adult: boolean;
-  backdrop_path: null | string;
-  belongs_to_collection: null | {
+  backdropPath: null | string;
+  belongsToCollection: null | {
     id: number;
     name: string;
-    poster_path: null | string;
-    backdrop_path: null | string;
+    posterPath: null | string;
+    backdropPath: null | string;
   };
   budget: number;
   genres: [] | { id: number; name: string }[];
   homepage: string;
   id: number;
-  imdb_id: null | string;
-  origin_country: [] | string[];
-  original_language: string;
-  original_title: string;
+  imdbId: null | string;
+  originCountry: [] | string[];
+  originalLanguage: string;
+  originalTitle: string;
   overview: string;
   popularity: number;
-  poster_path: string | null;
-  production_companies:
+  posterPath: string | null;
+  productionCompanies:
     | []
-    | { id: number; logo_path: string | null; name: string; origin_country: string }[];
-  production_countries: [] | { iso_3166_1: string; name: string }[];
-  release_date: string;
+    | { id: number; logoPath: string | null; name: string; originCountry: string }[];
+  productionCountries: [] | { iso31661: string; name: string }[];
+  releaseDate: string;
   revenue: number;
   runtime: number;
-  spoken_languages:
+  spokenLanguages:
     | []
     | {
-        english_name: string;
-        iso_639_1: string;
+        englishName: string;
+        iso6391: string;
         name: string;
       }[];
   status: string;
   tagline: string;
   title: string;
   video: boolean;
-  vote_average: number;
-  vote_count: number;
+  voteAverage: number;
+  voteCount: number;
 };
 
 export type TvEpisode = {
   id: number;
   overview: string;
   name: string;
-  vote_average: number;
-  vote_count: number;
-  air_date: string | null;
-  episode_number: number;
-  episode_type: string;
-  production_code: string;
+  voteAverage: number;
+  voteCount: number;
+  airDate: string | null;
+  episodeNumber: number;
+  episodeType: string;
+  productionCode: string;
   runtime: null | number;
-  season_number: number;
-  show_id: number;
-  still_path: null | string;
+  seasonNumber: number;
+  showId: number;
+  stillPath: null | string;
 };
 
 export type TvDetails = {
   adult: boolean;
-  backdrop_path: string | null;
-  created_by:
+  backdropPath: string | null;
+  createdBy:
     | {
         id: number;
-        credit_id: string;
+        creditId: string;
         name: string;
-        original_name: string;
+        originalName: string;
         gender: number;
-        profile_path: null | string;
+        profilePath: null | string;
       }[]
     | [];
-  episode_run_time: [] | number[];
-  first_air_date: string;
+  episodeRunTime: [] | number[];
+  firstAirDate: string;
   genres: [] | { id: number; name: string }[];
   homepage: string;
   id: number;
-  in_production: boolean;
+  inProduction: boolean;
   languages: [] | string[];
-  last_air_date: string | null;
-  last_episode_to_air: null | TvEpisode;
+  lastAirDate: string | null;
+  lastEpisodeToAir: null | TvEpisode;
   name: string;
-  next_episode_to_air: null | TvEpisode;
+  nextEpisodeToAir: null | TvEpisode;
   networks:
     | []
     | {
         id: number;
-        logo_path: string | null;
+        logoPath: string | null;
         name: string;
-        origin_country: string;
+        originCountry: string;
       }[];
-  number_of_episodes: number;
-  number_of_seasons: number;
-  origin_country: [] | string[];
-  original_language: string;
-  original_name: string;
+  numberOfEpisodes: number;
+  numberOfSeasons: number;
+  originCountry: [] | string[];
+  originalLanguage: string;
+  originalName: string;
   overview: string;
   popularity: number;
-  poster_path: string | null;
-  production_companies:
+  posterPath: string | null;
+  productionCompanies:
     | []
-    | { id: number; logo_path: string | null; name: string; origin_country: string }[];
-  production_countries: [] | { iso_3166_1: string; name: string }[];
+    | { id: number; logoPath: string | null; name: string; originCountry: string }[];
+  productionCountries: [] | { iso31661: string; name: string }[];
   seasons:
     | []
     | {
-        air_date: string | null;
-        episode_count: number;
+        airDate: string | null;
+        episodeCount: number;
         id: number;
         name: string;
         overview: string;
-        poster_path: string | null;
-        season_number: number;
-        vote_average: number;
+        posterPath: string | null;
+        seasonNumber: number;
+        voteAverage: number;
       }[];
-  spoken_languages:
+  spokenLanguages:
     | []
     | {
-        english_name: string;
-        iso_639_1: string;
+        englishName: string;
+        iso6391: string;
         name: string;
       }[];
   status: string;
   tagline: string;
   type: string;
-  vote_average: number;
-  vote_count: number;
+  voteAverage: number;
+  voteCount: number;
 };
 
 export type MovieListResult = {
   adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
+  backdropPath: string;
+  genreIds: number[];
   id: number;
-  original_language: string;
-  original_title: string;
+  originalLanguage: string;
+  originalTitle: string;
   overview: string;
   popularity: number;
-  poster_path: string;
-  release_date: string;
+  posterPath: string;
+  releaseDate: string;
   title: string;
   video: boolean;
-  vote_average: number;
-  vote_count: number;
+  voteAverage: number;
+  voteCount: number;
 };
 
 export type TvListResult = {
   adult: boolean;
-  backdrop_path: string | null;
-  genre_ids: number[] | [];
+  backdropPath: string | null;
+  genreIds: number[] | [];
   id: number;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
+  originCountry: string[];
+  originalLanguage: string;
+  originalName: string;
   overview: string;
   popularity: number;
-  poster_path: string;
-  first_air_date: string;
+  posterPath: string;
+  firstAirDate: string;
   name: string;
-  vote_average: number;
-  vote_count: number;
+  voteAverage: number;
+  voteCount: number;
 };
 
 export type SearchMultiResult = {
-  backdrop_path?: string | null;
+  backdropPath?: string | null;
   id: number;
-  original_name?: string;
+  originalName?: string;
   overview?: string;
-  poster_path?: string | null;
-  media_type: string;
+  posterPath?: string | null;
+  mediaType: string;
   adult: boolean;
   name?: string;
-  original_language?: string;
-  genre_ids?: number[] | [];
+  originalLanguage?: string;
+  genreIds?: number[] | [];
   popularity: number;
-  first_air_date?: string;
-  vote_average?: number;
-  vote_count?: number;
-  origin_country?: string[];
-  original_title?: string;
+  firstAirDate?: string;
+  voteAverage?: number;
+  voteCount?: number;
+  originCountry?: string[];
+  originalTitle?: string;
   title?: string;
-  release_date?: string;
+  releaseDate?: string;
   video?: boolean;
   gender?: number;
-  known_for_department?: string;
-  profile_path?: string | null;
-  known_for?: string[];
+  knownForDepartment?: string;
+  profilePath?: string | null;
+  knownFor?: string[];
 };
 
 export type SearchMulti = {
   page: number;
   results: SearchMultiResult[];
-  total_pages: number;
-  total_results: number;
+  totalPages: number;
+  totalResults: number;
 };
 
 export type PopularMovies = {
   page: number;
   results: MovieListResult[];
-  total_pages: number;
-  total_results: number;
+  totalPages: number;
+  totalResults: number;
 };
 
 export type TopRatedMovies = {
   page: number;
   results: MovieListResult[];
-  total_pages: number;
-  total_results: number;
+  totalPages: number;
+  totalResults: number;
 };
 
 export type UpcomingMovies = {
@@ -232,20 +232,20 @@ export type UpcomingMovies = {
   };
   page: number;
   results: MovieListResult[];
-  total_pages: number;
-  total_results: number;
+  totalPages: number;
+  totalResults: number;
 };
 
 export type PopularTvShows = {
   page: number;
   results: TvListResult[];
-  total_pages: number;
-  total_results: number;
+  totalPages: number;
+  totalResults: number;
 };
 
 export type TopRatedTvShows = {
   page: number;
   results: TvListResult[];
-  total_pages: number;
-  total_results: number;
+  totalPages: number;
+  totalResults: number;
 };
