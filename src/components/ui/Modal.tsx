@@ -3,10 +3,11 @@ import { X } from 'react-feather';
 import { MouseEventHandler, ReactNode, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { disableScroll, enableScroll } from '../../utils/scroll.ts';
+import useEscKeydown from '../../hooks/useEscKeydown.ts';
 
 type Props = {
   children: ReactNode;
-  onClose: MouseEventHandler<HTMLButtonElement>;
+  onClose: () => void | MouseEventHandler<HTMLButtonElement>;
   className?: string;
 };
 
@@ -15,6 +16,8 @@ const Modal = ({ children, onClose, className = '' }: Props) => {
     disableScroll();
     return () => enableScroll();
   }, []);
+
+  useEscKeydown(onClose);
 
   const modalClass = classNames(
     className,
