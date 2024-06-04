@@ -15,7 +15,6 @@ const SliderMediaList = ({ children, className = '' }: Props) => {
       prevArrow={<LeftArrow />}
       nextArrow={<RightArrow />}
       arrows
-      infinite
       speed={500}
       draggable={false}
       slidesToShow={7}

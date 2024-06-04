@@ -20,7 +20,7 @@ const ResultItem = ({ searchResult, onClose }: Props) => {
     id,
   } = searchResult;
 
-  const imgSrc = getPosterSrc(posterPath);
+  const imgSrc = getPosterSrc('w185', posterPath);
   const title = originalName || originalTitle || '';
   const releaseYear = parseTmdbDate(firstAirDate || releaseDate).year;
   const linkPath = getLinkPath(id, mediaType, title);

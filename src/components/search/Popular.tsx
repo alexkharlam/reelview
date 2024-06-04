@@ -21,7 +21,7 @@ const Popular = ({ onClose }: Props) => {
 
   if (popularMovies) {
     const jsxItems = popularMovies.results.map((result) => {
-      const posterSrc = getPosterSrc(result.posterPath);
+      const posterSrc = getPosterSrc('w185', result.posterPath);
       const linkPath = getLinkPath(result.id, 'movie', result.title);
       const releaseYear = parseTmdbDate(result.releaseDate).year;
 

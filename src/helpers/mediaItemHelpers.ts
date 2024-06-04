@@ -1,9 +1,11 @@
 import slugify from 'slugify';
 import defaultPoster from '../assets/poster-empty.png';
-import { baseUrl, posterSizes } from '../data/tmdb-images-config.ts';
+import { PosterSize } from '../types/ConfigTmdb.ts';
 
-export const getPosterSrc = (posterPath?: string | null) => {
-  const posterBaseUrl = `${baseUrl}${posterSizes.md}`;
+const baseUrl = import.meta.env.VITE_TMDB_IMG_BASE_URL;
+
+export const getPosterSrc = (size: PosterSize, posterPath?: string | null) => {
+  const posterBaseUrl = `${baseUrl}/${size}`;
   return posterPath ? `${posterBaseUrl}/${posterPath}` : defaultPoster;
 };
 

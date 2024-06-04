@@ -26,7 +26,7 @@ const PopularMovies = ({ className = '' }: Props) => {
   if (!popularMovies) return <p>No popular movies found</p>;
 
   const itemsJsx = popularMovies.results.map((result) => {
-    const posterSrc = getPosterSrc(result.posterPath);
+    const posterSrc = getPosterSrc('w500', result.posterPath);
     const linkPath = getLinkPath(result.id, 'movie', result.title);
 
     return (
