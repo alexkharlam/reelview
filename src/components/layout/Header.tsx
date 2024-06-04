@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { useAuth0 } from '@auth0/auth0-react';
 import reelrateLogo from '../../assets/reelrate-logo.svg';
@@ -16,7 +17,9 @@ const Header = () => {
     <header className="flex items-center border-b-2 border-gray-800 px-2 py-1.5">
       <MobileNav />
 
-      <img className="mr-auto" width={100} src={reelrateLogo} alt="Reelrate logo" />
+      <Link className="mr-auto" to="/">
+        <img width={100} src={reelrateLogo} alt="Reelrate logo" />
+      </Link>
       {!isAuthenticated && !isLoading && (
         <button className={btnClass} type="button" onClick={() => loginWithRedirect()}>
           Login
