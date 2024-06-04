@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className="px-1">
+      <main className="px-2">
         <Outlet />
       </main>
       <footer>footer</footer>
