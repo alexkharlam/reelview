@@ -10,6 +10,8 @@ import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App.tsx';
 import './index.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Error from './views/Error.tsx';
 import Home from './views/Home.tsx';
 import Details from './views/Details.tsx';
