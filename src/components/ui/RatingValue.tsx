@@ -6,16 +6,19 @@ type Props = {
 };
 
 const RatingValue = ({ value, className = '' }: Props) => {
-  const textClass = classNames('font-bold', {
-    'text-red-700': value < 3 && value >= 0,
-    'text-orange-500': value < 5 && value >= 3,
-    'text-yellow-500': value < 7 && value >= 5,
-    'text-green-500': value < 8 && value >= 7,
-    'text-green-800': value >= 8,
+  const textClass = classNames(
+    'font-bold',
+    {
+      'text-red-700': value < 3 && value >= 0,
+      'text-orange-500': value < 5 && value >= 3,
+      'text-yellow-500': value < 7 && value >= 5,
+      'text-green-500': value < 8 && value >= 7,
+      'text-green-800': value >= 8,
+    },
     className,
-  });
+  );
 
-  return <div className={textClass}>{value}</div>;
+  return <div className={textClass}>{parseFloat(value.toFixed(1))}</div>;
 };
 
 export default RatingValue;
