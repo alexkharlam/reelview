@@ -184,7 +184,7 @@ export type SearchMultiResult = {
   originalName?: string;
   overview?: string;
   posterPath?: string | null;
-  mediaType: string;
+  mediaType: 'tv' | 'movie' | 'person';
   adult: boolean;
   name?: string;
   originalLanguage?: string;
