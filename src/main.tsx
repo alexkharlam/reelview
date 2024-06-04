@@ -21,8 +21,7 @@ import getAuthConfig from './helpers/getAuthConfig.ts';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // staleTime: 60 * 1000,
-      staleTime: 0,
+      staleTime: 60 * 1000,
     },
   },
 });
