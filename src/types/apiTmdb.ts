@@ -1,3 +1,5 @@
+export type Genres = [] | { id: number; name: string }[];
+
 export type MovieVideos = {
   id: number;
   results:
@@ -26,7 +28,7 @@ export type MovieDetails = {
     backdropPath: null | string;
   };
   budget: number;
-  genres: [] | { id: number; name: string }[];
+  genres: Genres;
   homepage: string;
   id: number;
   imdbId: null | string;
@@ -89,7 +91,7 @@ export type TvDetails = {
     | [];
   episodeRunTime: [] | number[];
   firstAirDate: string;
-  genres: [] | { id: number; name: string }[];
+  genres: Genres;
   homepage: string;
   id: number;
   inProduction: boolean;
