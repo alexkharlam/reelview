@@ -1,4 +1,4 @@
 const WatchList = () => {
-  return <div>WatchList view</div>;
+  return <div className="p-3 text-center">WatchList feature is in development</div>;
 };
 export default WatchList;
