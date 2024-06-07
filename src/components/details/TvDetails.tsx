@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getTvShowDetails } from '../../services/apiTmdb.ts';
 import queryKeys from '../../data/queryKeys.ts';
-import SmallLoader from '../ui/SmallLoader/index.tsx';
 import MediaDetailedImages from '../ui/MediaDetailedImages.tsx';
 import MediaTitleSection from '../ui/MediaTitleSection.tsx';
 import DetailedOverviewSection from '../ui/DetailedOverviewSection.tsx';
@@ -15,16 +14,11 @@ type Props = {
 };
 
 const TvDetails = ({ id }: Props) => {
-  const {
-    data: tv,
-    isError,
-    isFetching,
-  } = useQuery({
+  const { data: tv, isError } = useQuery({
     queryFn: () => getTvShowDetails(id),
-    queryKey: [queryKeys.tvDetails],
+    queryKey: [`${queryKeys.tvDetails}-${id}`],
   });
 
-  if (isFetching) return <SmallLoader />;
   if (isError || !tv) return <p>Error</p>;
 
   const posterImgSrc = getPosterSrc('w342', tv.posterPath);

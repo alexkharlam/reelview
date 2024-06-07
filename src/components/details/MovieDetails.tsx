@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import { getMovieDetails } from '../../services/apiTmdb.ts';
 import queryKeys from '../../data/queryKeys.ts';
 import { getBackdropSrc, getGenresText, getPosterSrc } from '../../helpers/mediaItemHelpers.ts';
-import SmallLoader from '../ui/SmallLoader/index.tsx';
 import parseTmdbDate from '../../helpers/parseTmdbDate.ts';
 import HeadingTertiary from '../ui/headings/HeadingTertiary.tsx';
 import MediaDetailedInfo from '../ui/MediaDetailedInfo.tsx';
@@ -15,16 +14,11 @@ type Props = {
 };
 
 const MovieDetails = ({ id }: Props) => {
-  const {
-    data: movie,
-    isFetching,
-    isError,
-  } = useQuery({
+  const { data: movie, isError } = useQuery({
     queryFn: () => getMovieDetails(id),
-    queryKey: [queryKeys.movieDetails],
+    queryKey: [`${queryKeys.movieDetails}-${id}`],
   });
 
-  if (isFetching) return <SmallLoader />;
   if (isError || !movie) return <p>Error</p>;
 
   const posterImgSrc = getPosterSrc('w342', movie?.posterPath);
