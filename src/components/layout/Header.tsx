@@ -1,3 +1,4 @@
+import { useIsFetching } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -7,9 +8,11 @@ import defaultProfilePhoto from '../../assets/default-profile.png';
 import SmallLoader from '../ui/SmallLoader/index.tsx';
 import MobileNav from './MobileNav.tsx';
 import SearchContainer from '../search/SearchContainer.tsx';
+import LoaderHorizontal from '../ui/LoaderHorizontal/index.tsx';
 
 const Header = () => {
   const { loginWithRedirect, isAuthenticated, logout, user, isLoading } = useAuth0();
+  const isFetching = useIsFetching();
 
   const btnClass = classNames('text-md font-medium');
 
@@ -35,6 +38,9 @@ const Header = () => {
         </div>
       )}
       <SearchContainer />
+      {isFetching === 1 && (
+        <LoaderHorizontal className="absolute left-[0px] top-[0px] h-1 w-full" />
+      )}
     </header>
   );
 };
