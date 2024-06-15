@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import { useIsFetching } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
@@ -9,20 +10,23 @@ import SmallLoader from '../ui/SmallLoader/index.tsx';
 import MobileNav from './MobileNav.tsx';
 import SearchContainer from '../search/SearchContainer.tsx';
 import LoaderHorizontal from '../ui/LoaderHorizontal/index.tsx';
+import DekstopNav from './DekstopNav.tsx';
 
 const Header = () => {
   const { loginWithRedirect, isAuthenticated, logout, user, isLoading } = useAuth0();
   const isFetching = useIsFetching();
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const btnClass = classNames('text-md font-medium');
 
   return (
     <header className="flex items-center border-b-2 border-gray-800 px-2 py-1.5">
-      <MobileNav />
+      {isMobile && <MobileNav />}
 
       <Link className="mr-auto" to="/">
         <img width={100} src={reelrateLogo} alt="Reelrate logo" />
       </Link>
+      {!isMobile && <DekstopNav />}
       {!isAuthenticated && !isLoading && (
         <button className={btnClass} type="button" onClick={() => loginWithRedirect()}>
           Login
