@@ -32,7 +32,11 @@ const Header = () => {
       {isAuthenticated && !isLoading && (
         <div className="flex items-center gap-1.5">
           <ProfilePhoto alt="Profile" src={user?.picture || defaultProfilePhoto} />
-          <button className={btnClass} type="button" onClick={() => logout()}>
+          <button
+            className={btnClass}
+            type="button"
+            onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+          >
             Logout
           </button>
         </div>
