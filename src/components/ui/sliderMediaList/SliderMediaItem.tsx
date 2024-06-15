@@ -6,15 +6,17 @@ type Props = {
   voteAverage: number;
   title: string;
   linkPath: string;
+  year: string;
 };
 
-const SliderMediaItem = ({ posterImgSrc, voteAverage, title, linkPath }: Props) => {
+const SliderMediaItem = ({ posterImgSrc, voteAverage, title, linkPath, year }: Props) => {
   return (
     <Link to={linkPath} className="mx-1 flex w-5.5 flex-col bg-gray-1200 sm:w-6 lg:w-6.5">
       <img className="w-full" src={posterImgSrc} alt={title} />
       <div className="line-clamp-2 h-3.5 p-1 text-xs font-medium text-white">{title}</div>
-      <div className="flex items-center justify-between p-1">
-        <RatingValue className="text-xs" value={voteAverage} />
+      <div className="flex items-center justify-between p-1.5">
+        <RatingValue className="text-sm" value={voteAverage} />
+        <span className="text-sm">{year}</span>
       </div>
     </Link>
   );

@@ -5,6 +5,7 @@ import SmallLoader from './ui/SmallLoader/index.tsx';
 import { getLinkPath, getPosterSrc } from '../helpers/mediaItemHelpers.ts';
 import SliderMediaItem from './ui/sliderMediaList/SliderMediaItem.tsx';
 import SliderMediaList from './ui/sliderMediaList/SliderMediaList.tsx';
+import parseTmdbDate from '../helpers/parseTmdbDate.ts';
 
 type Props = {
   className?: string;
@@ -28,9 +29,11 @@ const PopularTv = ({ className = '' }: Props) => {
   const itemsJsx = popularMovies.results.map((result) => {
     const posterSrc = getPosterSrc('w500', result.posterPath);
     const linkPath = getLinkPath(result.id, 'tv', result.originalName);
+    const releaseYear = parseTmdbDate(result.firstAirDate).year;
 
     return (
       <SliderMediaItem
+        year={`${releaseYear} -`}
         linkPath={linkPath}
         title={result.originalName}
         voteAverage={result.voteAverage}
