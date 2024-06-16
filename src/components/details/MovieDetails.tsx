@@ -47,7 +47,7 @@ const MovieDetails = ({ id }: Props) => {
         {movie.budget && <MediaDetailedInfo title="Budget" body={`${movie.budget} $`} />}
         {movie.revenue && <MediaDetailedInfo title="Revenue" body={`${movie.revenue} $`} />}
         {movie.voteAverage && (
-          <MediaDetailedInfo title="Average vote" body={`${movie.voteAverage} $`} />
+          <MediaDetailedInfo title="Average vote" body={`${movie.voteAverage}`} />
         )}
       </section>
     </div>
